@@ -25,41 +25,15 @@ app.get("/api/hello", function (req, res) {
 });
 
 
-// timestamp API endpoint.
-let tsPath = "/api/timestamp/:time";
-let currTsPath = "/api/timestamp";
-let tsHandler = (req, res) => {
-  let utcDate;
-  let unixTime;
-  let t = req.params.time;
-  if(parseInt(t) == t){
-    // seconds input
-    utcDate = new Date(parseInt(t)).toUTCString();
-    unixTime = t;
-    res.json({unix: unixTime, utc: utcDate});
-  } else{
-    // yyyy-mm-dd input
-    utcDate = new Date(t).toUTCString();
-    unixTime = new Date(t).getTime();
-    if(utcDate==="Invalid Date"){
-      // invalid input    
-      res.json({error: utcDate});
-    } else{
-      // valid input
-      res.json({unix: unixTime, utc: utcDate});      
-    }
-  }
+// "/api/whoami" path API endpoint.
+let idPath = "/api/whoami";
+let idHandler = (req, res) => {
+  res.json({ipaddress: req.ip, language: req.headers["accept-language"], software: req.headers["user-agent"]});
 };
-let currTsHandler = (req, res) => {
-  let utcDate = new Date().toUTCString();
-  let unixTime = Date.now();
-  res.json({unix: unixTime, utc: utcDate});
-};
-app.get(tsPath, tsHandler);
-app.get(currTsPath, currTsHandler);
+app.get(idPath, idHandler);
 
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port + '...');
+  console.log('Your app is listening on port ' + listener.address().port);
 });
