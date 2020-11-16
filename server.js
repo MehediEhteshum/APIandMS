@@ -52,7 +52,7 @@ let tsHandler = (req, res) => {
 };
 let currTsHandler = (req, res) => {
   let utcDate = new Date().toUTCString();
-  let unixTime = new Date().getTime();
+  let unixTime = Date.now();
   res.json({unix: unixTime, utc: utcDate});
 };
 app.get(tsPath, tsHandler);
