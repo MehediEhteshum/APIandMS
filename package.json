@@ -1,35 +1,27 @@
 {
-    "name": "fcc-mongo-mongoose-challenges",
-    "version": "0.0.1",
-    "author": "Mehedi Ehteshum",
-    "description": "Learning APIs and microservices in an awesome way!",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "body-parser": "^1.15.2",
-        "dotenv": "^8.2.0",
-        "express": "^4.12.4",
-        "mongodb": "^3.0.0",
-        "mongoose": "^5.6.5"
-    },
-    "engines": {
-        "node": "12.*"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/freeCodeCamp/boilerplate-mongomongoose.git"
-    },
-    "keywords": [
-        "freecodecamp",
-        "node.js",
-        "mongoDB",
-        "APIs",
-        "microservices",
-        "mongoose",
-        "npm",
-        "express"
-    ],
-    "license": "MIT"
+	"name": "fcc-api-projects-boilerplate",
+	"version": "0.0.1",
+	"description": "Timestamp Microservice: An FCC Backend Challenge",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.12.4",
+		"cors": "^2.8.0"
+	},
+	"engines": {
+		"node": "4.4.5"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://githost.com/camper/repo.git"
+	},
+	"keywords": [
+		"node",
+		"hyperdev",
+		"express",
+		"freecodecamp"
+	],
+	"license": "MIT"
 }
