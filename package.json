@@ -1,30 +1,35 @@
 {
-	"name": "fcc-learn-node-with-express",
-	"author": "Mehedi Ehteshum",
-	"description": "Learning APIs and microservices in an awesome way!",
-	"keywords": [
-		"freecodecamp",
-		"node.js",
-		"mongoDB",
-		"APIs",
-		"microservices",
-		"mongoose",
-		"npm",
-		"express"
-	],
-	"license": "MIT",
-	"version": "0.1.0",
-	"dependencies": {
-		"express": "^4.14.0",
-		"body-parser": "^1.15.2",
-		"cookie-parser": "^1.4.3",
-		"fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
-	},
-	"main": "server.js",
-	"scripts": {
-		"start": "node server.js"
-	},
-	"engines": {
-		"node": "4.4.5"
-	}
+    "name": "fcc-mongo-mongoose-challenges",
+    "version": "0.0.1",
+    "author": "Mehedi Ehteshum",
+    "description": "Learning APIs and microservices in an awesome way!",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.15.2",
+        "dotenv": "^8.2.0",
+        "express": "^4.12.4",
+        "mongodb": "^3.0.0",
+        "mongoose": "^5.6.5"
+    },
+    "engines": {
+        "node": "12.*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/freeCodeCamp/boilerplate-mongomongoose.git"
+    },
+    "keywords": [
+        "freecodecamp",
+        "node.js",
+        "mongoDB",
+        "APIs",
+        "microservices",
+        "mongoose",
+        "npm",
+        "express"
+    ],
+    "license": "MIT"
 }
