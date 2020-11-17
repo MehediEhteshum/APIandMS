@@ -1,39 +1,54 @@
-// server.js
-// where your node app starts
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const app = express();
 
-// init project
-var express = require('express');
-var app = express();
+// Basic Configuration
+const port = process.env.PORT || 3000;
 
-// enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
-// so that your API is remotely testable by FCC 
-var cors = require('cors');
-app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 204
+// parse post requests.
+let parseBody = bodyParser.urlencoded({extended: false});
+app.use(parseBody);
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+app.use(cors());
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+app.use('/public', express.static(`${process.cwd()}/public`));
+
+app.get('/', function(req, res) {
+  res.sendFile(process.cwd() + '/views/index.html');
 });
 
-
-// your first API endpoint... 
-app.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
+// Your first API endpoint
+app.get('/api/hello', function(req, res) {
+  res.json({ greeting: 'hello API' });
 });
 
+// parsing URL form.
+let urls = [];
+let newShortUrlPath = "/api/shorturl/new";
+let urlPoster = function(req, res){
+  let url = req.body.url;
+  let regUrl = /^https*\:\/\/\w+.\w+.\w+/;
+  console.log(url.match(regUrl));
+  if(!urls.includes(url) && regUrl.test(url)){
+    urls.push(url);
+    res.json({original_url: url, short_url: urls.indexOf(url)});
+  } else{
+    res.json({error: "Invalid URL"});
+  }
+}
+app.route(newShortUrlPath).post(urlPoster);
 
-// "/api/whoami" path API endpoint.
-let idPath = "/api/whoami";
-let idHandler = (req, res) => {
-  res.json({ipaddress: req.ip, language: req.headers["accept-language"], software: req.headers["user-agent"]});
-};
-app.get(idPath, idHandler);
+// open short url.
+let urlPath = "/api/shorturl/:index";
+let urlGetter = function(req, res){
+  let i = parseInt(req.params.index);
+  res.redirect(urls[i]);
+  console.log(res.error);
+}
+app.get(urlPath, urlGetter);
 
-
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+app.listen(port, function() {
+  console.log(`Listening on port ${port}`);
 });
