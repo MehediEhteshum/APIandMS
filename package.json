@@ -1,7 +1,8 @@
 {
   "name": "shorturl",
   "version": "0.0.3",
-  "description": "API project for freeCodeCamp",
+  "author": "Mehedi Ehteshum",
+  "description": "urlShortener: API project for freeCodeCamp",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -11,7 +12,10 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.15",
+    "url-exists": "^1.0.3"
   },
   "engines": {
     "node": "12.18.3"
