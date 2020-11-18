@@ -45,7 +45,6 @@ let urlPath = "/api/shorturl/:index";
 let urlGetter = function(req, res){
   let i = parseInt(req.params.index);
   res.redirect(urls[i]);
-  console.log(res.error);
 }
 app.get(urlPath, urlGetter);
 
