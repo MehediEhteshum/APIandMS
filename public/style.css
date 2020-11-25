@@ -1,46 +1,42 @@
+/****** Main Styling ******/
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #222;
-  background-color: #fff;
+  background-color: #ECF0F1;
   text-align: center;
-  line-height: 1.4em;
 }
 
-main {
+.container {
   padding: 0;
   margin-top: 40px;
 }
 
-h3 {
-  margin-top: 30px;
-}
-
-
-
-.user-stories li {
-  margin-bottom: 1em;
+.footer {
+  margin-top: 60px;
 }
 
 a {
-  color: #2574a9;
-}
-
-form {
-  margin: 10px auto;
-  padding: 20px;
-  max-width: 600px;
-}
-
-label {
-  margin-right: 10px;
+  color: #2574A9;
 }
 
 input {
-  padding: 5px;
+  display: block;
+  position: relative;
+  margin: 10px auto;
 }
 
-input[type='text'] {
-  width: 220px;
-  text-align: center;
+input#button {
+  width: 230px;
+}
+
+.view {
+  position:relative;
+  margin: auto;
+  margin-top: 40px;
+  border: 1px  solid  #aaa;
+  padding: 20px;
+  width: 60%;
+  min-width: 400px;
 }
